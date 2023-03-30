@@ -2,9 +2,23 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <header className="header">
-      <img src="https://i.pinimg.com/originals/50/65/f9/5065f93bde11bf9ff4b21cf4c50eeab8.png" />
-    </header>
+<nav className="nav">
+        <div>
+          <a href="#">Profile</a>
+        </div>
+        <div>
+          <a href="#">Message</a>
+        </div>
+        <div>
+          <a href="#">News</a>
+        </div>
+        <div>
+          <a href="#">Music</a>
+        </div>
+        <div>
+          <a href="#">Settings</a>
+        </div>
+      </nav>
   );
 };
 
