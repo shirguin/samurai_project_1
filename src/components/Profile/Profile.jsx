@@ -1,17 +1,12 @@
 import React from "react";
-import classes from './Profile.module.css';
+import classes from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
   return (
     <div>
-      <div>
-        <img
-          className={classes.content__big__photo}
-          src="https://natalyland.ru/wp-content/uploads/a/0/c/a0c0bb380e6d9105c77a002a5083a197.png"
-        ></img>
-      </div>
-      <div>ava + description</div>
+      <ProfileInfo />
       <MyPosts />
     </div>
   );
