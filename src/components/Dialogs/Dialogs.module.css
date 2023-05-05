@@ -22,3 +22,15 @@
 .messages .message {
   color: white;
 }
+
+.newMessage {
+  background-color: #c09191;
+}
+
+.textareaNewMessage {
+  width: 150px;
+}
+
+.buttonNewMessage {
+  width: 100px;
+}
