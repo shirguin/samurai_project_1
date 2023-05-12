@@ -28,13 +28,10 @@ const store = {
     },
     sidebar: {},
   },
-  getState() {
-    return this._state;
-  },
   _callSubscriber() {
     console.log("State changed");
   },
-  addPost() {
+  _addPost() {
     const newPost = {
       id: 5,
       message: this._state.profilePage.newPostText,
@@ -44,12 +41,27 @@ const store = {
     this._state.profilePage.newPostText = "";
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newPostText) {
+  _updateNewPostText(newPostText) {
     this._state.profilePage.newPostText = newPostText;
     this._callSubscriber(this._state);
   },
+
+  getState() {
+    return this._state;
+  },
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+
+
+  dispatch(action) {
+    //{type: 'ADD-POST'}
+    if (action.type === "ADD-POST") {
+      this._addPost();
+    } else if(action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._updateNewPostText(action.newPostText);
+    };
   },
 };
 
