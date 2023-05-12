@@ -3,21 +3,25 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-
   const postsElements = props.posts.map((post) => (
     <Post message={post.message} count={post.count} />
   ));
 
   let newPostElement = React.createRef();
 
-  const addPost = ()=>{
-  props.addPost();
+  const addPost = () => {
+    props.dispatch({ type: "ADD-POST" });
   };
 
-const onPostChange = ()=>{
-  const newText = newPostElement.current.value;
-  props.updateNewPostText(newText);
-}
+  const onPostChange = () => {
+    const newText = newPostElement.current.value;
+    const action = {
+      type: "UPDATE-NEW-POST-TEXT",
+      aaaa: "aaaaaa",
+      newPostText: newText,
+    };
+    props.dispatch(action);
+  };
 
   return (
     <div>
@@ -25,10 +29,14 @@ const onPostChange = ()=>{
 
       <div className={classes.postsBlock}>
         <div>
-          <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+          <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            value={props.newPostText}
+          />
         </div>
         <div>
-          <button onClick = {addPost}>Add post</button>
+          <button onClick={addPost}>Add post</button>
           <button>Remove</button>
         </div>
       </div>
